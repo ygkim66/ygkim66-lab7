@@ -82,17 +82,25 @@ public class DotChaser {
    */
   public static void main(String[] args) {
     int N = 200;
+    int count = 0;
 
     if( args.length != 0 )
       N = Integer.parseInt(args[0]);
 
     
     ThingList list = new ThingList();
-    list.add(new Thing());
+    while(true){
+      if (count % N == 0){
+        //FIX HERE
+        list.add(new TypeA(45,50,));
+        list.add(new TypeB(55,50,   , 'b', true));
+      }
+    }
 
+ /* 
     // INSTEAD OF A NODE, CREATE SOMETHING MORE USER-FRIENDLY.
-    Node L = null;
-    int count = 0;
+    //Node L = null;
+    //int count = 0;
 
     while( true ) {
       // Every N rounds, add another typeA and typeB Thing.
@@ -100,9 +108,6 @@ public class DotChaser {
 
         // Add a typeA thing to the list.
         // (GEE, THAT'S A LOT OF CODE FOR JUST CREATING ONE THING)
-
-
-
         Thing tA = new Thing();
         tA.row = 45;
         tA.col = 50;
@@ -121,7 +126,7 @@ public class DotChaser {
         nB.data = tB;
         nB.next = L;
         L       = nB;
-      }
+      }*/
 
       // Print out each thing.
       // (SEEMS LIKE A NICE PRINTALL() METHOD CALL WOULD WORK HERE)

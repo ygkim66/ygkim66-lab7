@@ -42,6 +42,14 @@ public class ThingList {
             return returnNode;
         }
 
+    
+    }
 
+    public Thing getTail(){
+        Thing temp = head;
+        while (temp.next != null){
+            temp = temp.next;
+        }
+        return temp;
     }
 }

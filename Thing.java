@@ -52,5 +52,8 @@ public class Thing {
         col = col + dc[dir];
         row = row + dr[dir];
     }
+    public String toString(){
+        
+    }
 
 }
