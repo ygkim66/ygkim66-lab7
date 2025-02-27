@@ -1,3 +1,3 @@
-public class TypeA {
+public class TypeA extends Thing{
     
 }
