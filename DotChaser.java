@@ -92,8 +92,8 @@ public class DotChaser {
     while(true){
       if (count % N == 0){
         //FIX HERE
-        list.add(new TypeA(45,50,));
-        list.add(new TypeB(55,50,   , 'b', true));
+       // list.add(new TypeA(45,50,));
+       // list.add(new TypeB(55,50,   , 'b', true));
       }
     }
 
@@ -131,14 +131,16 @@ public class DotChaser {
       // Print out each thing.
       // (SEEMS LIKE A NICE PRINTALL() METHOD CALL WOULD WORK HERE)
       // (SEEMS LIKE A toString() METHOD IN THE CLASS WOULD ALSO BE NICE)
-      for( Node T = L; T != null; T = T.next )
-        System.out.println(T.data.row + " " + T.data.col + " " + T.data.lab);
+     // for( Node T = L; T != null; T = T.next )
+       // System.out.println(T.data.row + " " + T.data.col + " " + T.data.lab);
 
-      System.out.println("done");
-      System.out.flush();
+    //  System.out.println("done");
+     // System.out.flush();
 
       // Move each thing.
       // (SEEMS LIKE A NICE MOVEALL() METHOD CALL WOULD WORK HERE)
+      list.moveAll();
+      
       for( Node T = L; T != null; T = T.next ) {
         maybeTurn(T.data);
         step(T.data);

@@ -1,8 +1,8 @@
 import java.util.Random;
 
-public class Thing {
-    private int  row, col, dir, timeSinceLast;
-    private char lab = 'r';
+public abstract class Thing {
+    protected int  row, col, dir, timeSinceLast;
+    protected char lab = 'r';
     private boolean isTypeB;
 
     public Thing(){
@@ -37,7 +37,7 @@ public class Thing {
     public void setTime(int i){
         timeSinceLast = i;
     }
-    public void maybeTurn() {
+   /*  public void maybeTurn() {
         Random rand = new Random(System.currentTimeMillis());
         int i = rand.nextInt(3);
 
@@ -45,7 +45,9 @@ public class Thing {
             rightTurn();
         else
             leftTurn();
-    }
+    }*/
+    public abstract void maybeTurn(Random r);
+
     public void step(){
         int[] dc = {0,1,0,-1};
         int[] dr = {1,0,-1,0};
@@ -53,7 +55,7 @@ public class Thing {
         row = row + dr[dir];
     }
     public String toString(){
-        
+        return row + " " + col + " " + lab;
     }
 
 }

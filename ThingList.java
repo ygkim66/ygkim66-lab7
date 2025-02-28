@@ -1,13 +1,16 @@
 public class ThingList {
+
     private Thing head;
-    private Thing next;
+    //private Thing next;
+    private Thing data;
+    private Node next;
 
     public ThingList(){
         head = null;
         next = null;
     }
 
-    public void add(Thing n){
+    public void addAll(Thing n){
         Thing temp = head;
         if (head == null){
             head = n;
