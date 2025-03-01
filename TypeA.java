@@ -4,6 +4,9 @@ public class TypeA extends Thing{
     public TypeA(){
         super();
     }
+    public TypeA(int r, int c, int d, char ch){
+        super(r,c,d,ch);
+    }
 
     public void maybeTurn(Random r) {
     if (r.nextInt(3) == 1)

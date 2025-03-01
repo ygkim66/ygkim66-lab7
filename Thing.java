@@ -1,7 +1,10 @@
 import java.util.Random;
 
 public abstract class Thing {
-    protected int  row, col, dir, timeSinceLast;
+    protected int row;
+    protected int col;
+    protected int dir;
+    protected int timeSinceLast;
     protected char lab = 'r';
     private boolean isTypeB;
 
@@ -9,19 +12,23 @@ public abstract class Thing {
         row = 0;
         col = 0;
         dir = 0;
-        timeSinceLast = 0;
+  //      timeSinceLast = 0;
         lab = 'r';
-        isTypeB = false;
+ //       isTypeB = false;
 
     }
+ //   public Thing(int r, int c, char lab){
+
+   // }
     
-    public Thing(int r, int c, int d, int t, char l, boolean b){
+   // public Thing(int r, int c, int d, int t, char l, boolean b){
+   public Thing(int r, int c, int d, char l){
         row = r;
         col = c;
         dir = d;
-        timeSinceLast = t;
+   //     timeSinceLast = t;
         lab = l;
-        isTypeB = b;
+     //   isTypeB = b;
     }
 
     public void rightTurn() {

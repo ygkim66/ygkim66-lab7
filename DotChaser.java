@@ -83,19 +83,26 @@ public class DotChaser {
   public static void main(String[] args) {
     int N = 200;
     int count = 0;
+    Random r = new Random(3);
 
     if( args.length != 0 )
       N = Integer.parseInt(args[0]);
 
     
     ThingList list = new ThingList();
-    while(true){
+    while(count < 100000){
       if (count % N == 0){
+        list.addThing(new TypeA(45,50, 0, 'r')); 
+        
+        list.addThing(new TypeB(55,50, 0, 'b'));
+        count++;
         //FIX HERE
        // list.add(new TypeA(45,50,));
        // list.add(new TypeB(55,50,   , 'b', true));
       }
     }
+    list.printAll();
+    list.moveAll(r);
 
  /* 
     // INSTEAD OF A NODE, CREATE SOMETHING MORE USER-FRIENDLY.
@@ -139,13 +146,13 @@ public class DotChaser {
 
       // Move each thing.
       // (SEEMS LIKE A NICE MOVEALL() METHOD CALL WOULD WORK HERE)
-      list.moveAll();
-      
+
+      /* 
       for( Node T = L; T != null; T = T.next ) {
         maybeTurn(T.data);
         step(T.data);
       }
       count++;
-    }
+    }*/
   }
 }
