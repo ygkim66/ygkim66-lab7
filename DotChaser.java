@@ -81,9 +81,8 @@ public class DotChaser {
    * This static method is ok :)
    */
   public static void main(String[] args) {
-    int N = 200;
+    int N = 20000;
     int count = 0;
-    Random r = new Random(3);
 
     if( args.length != 0 )
       N = Integer.parseInt(args[0]);
@@ -91,6 +90,7 @@ public class DotChaser {
     
     ThingList list = new ThingList();
     while(count < 100000){
+      Random r = new Random(System.currentTimeMillis());
       if (count % N == 0){
         list.addThing(new TypeA(45,50, 0, 'r')); 
         
@@ -99,10 +99,15 @@ public class DotChaser {
         //FIX HERE
        // list.add(new TypeA(45,50,));
        // list.add(new TypeB(55,50,   , 'b', true));
+        list.printAll();
+
       }
+      if (count % 999 == 0)
+        list.moveAll(r);
+      list.printAll();
+      count++;
     }
-    list.printAll();
-    list.moveAll(r);
+
 
  /* 
     // INSTEAD OF A NODE, CREATE SOMETHING MORE USER-FRIENDLY.

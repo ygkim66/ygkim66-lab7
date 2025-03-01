@@ -16,8 +16,9 @@ public class TypeC extends Thing {
             setTime(0);
             leftTurn();
         }*/
-
         rightTurn();
+        step();
         leftTurn();
+        step();
     }
 }

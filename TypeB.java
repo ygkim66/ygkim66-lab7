@@ -22,6 +22,7 @@ public class TypeB extends Thing{
 
     public void maybeTurn(Random r) {
         int i = r.nextInt(3);
+        step();
 
         //setTime(getTime() + 1);
         timeSinceLast++;

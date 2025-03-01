@@ -62,10 +62,10 @@ public class ThingList {
     }
 
     public void moveAll(Random r){
-        Random rand = new Random(3);
+       // Random rand = new Random(3);
         Node temp = head;
         while (temp != null){
-            temp.returnThing().maybeTurn(rand);
+            temp.returnThing().maybeTurn(r);
             temp = temp.next;
         }
     }
