@@ -4,6 +4,9 @@ public class TypeC extends Thing {
     public TypeC(){
         super();
     }
+    public TypeC(int r, int c, int d, char l){
+        super(r, c, d, l);
+    }
     public void maybeTurn(Random r){
         int i = r.nextInt(3);
 
@@ -19,6 +22,6 @@ public class TypeC extends Thing {
         rightTurn();
         step();
         leftTurn();
-        step();
+       // step();
     }
 }

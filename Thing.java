@@ -5,30 +5,21 @@ public abstract class Thing {
     protected int col;
     protected int dir;
     protected int timeSinceLast;
-    protected char lab = 'r';
-    private boolean isTypeB;
+    protected char lab;
 
     public Thing(){
         row = 0;
         col = 0;
-        dir = 0;
-  //      timeSinceLast = 0;
+        dir = (int) ((3-0+1)*Math.random()) ;
         lab = 'r';
- //       isTypeB = false;
-
     }
- //   public Thing(int r, int c, char lab){
 
-   // }
     
-   // public Thing(int r, int c, int d, int t, char l, boolean b){
    public Thing(int r, int c, int d, char l){
         row = r;
         col = c;
         dir = d;
-   //     timeSinceLast = t;
         lab = l;
-     //   isTypeB = b;
     }
 
     public void rightTurn() {
@@ -44,15 +35,7 @@ public abstract class Thing {
     public void setTime(int i){
         timeSinceLast = i;
     }
-   /*  public void maybeTurn() {
-        Random rand = new Random(System.currentTimeMillis());
-        int i = rand.nextInt(3);
 
-        if (i == 1)
-            rightTurn();
-        else
-            leftTurn();
-    }*/
     public abstract void maybeTurn(Random r);
 
     public void step(){

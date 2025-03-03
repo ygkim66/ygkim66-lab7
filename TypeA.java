@@ -9,10 +9,9 @@ public class TypeA extends Thing{
     }
 
     public void maybeTurn(Random r) {
-        step();
-    if (r.nextInt(3) == 1)
-        rightTurn();
-    else
-        leftTurn();
+        if (r.nextInt(3) == 1)
+            rightTurn();
+        else
+            leftTurn();
     }
 }

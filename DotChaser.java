@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class DotChaser {
-  public static Random rand = new Random(System.currentTimeMillis());
+  public Random rand = new Random(System.currentTimeMillis());
 
   /**
    * A "Thing" moves in a grid world. A TypeA Thing randomly
@@ -18,146 +18,34 @@ public class DotChaser {
     public char lab = 'r';
     public boolean isTypeB;
   }
-*/
-  /**
-   * YOU'LL NEED TO PUT THIS SOMEWHERE ELSE
-   * HINT: WOULDN'T IT BE NICE TO HAVE A LIST OR QUEUE SO THAT
-   *       WE DON'T HAVE TO USE NODES HERE?
-   * This class is for linked lists of Thing's
-   
-  public static class Node {
 
-  }
-
-  // EEEEEK! STATIC METHODS!!! PLEASE FIND THEM A BETTER HOME.
-  public static void rightTurn(Thing t) {
-    t.dir = (t.dir + 1) % 4;
-  }
-
-  public static void leftTurn(Thing t) {
-    t.dir = (t.dir + 3) % 4;
-  }
-
-  public static void maybeTurn(Thing t) {
-    int i = rand.nextInt(3);
-
-    if (t.isTypeB) {
-      t.timeSinceLast++;
-
-      if (t.timeSinceLast == 10) {
-        t.timeSinceLast = 0;
-
-        if (i == 1) {
-          rightTurn(t);
-        }
-
-        if (i == 2) {
-          leftTurn(t);
-        }
-      }
-    } else   {
-      if (i == 1) {
-        rightTurn(t);
-      }
-
-      if (i == 2) {
-        leftTurn(t);
-      }
-    }
-  }
-
-  public static void step(Thing t) {
-    final int[] dc = {
-      0, 1, 0, -1
-    }, dr = {
-      1, 0, -1, 0
-    };
-    t.row += dr[t.dir];
-    t.col += dc[t.dir];
-  }
-
-  
   /**
    * This static method is ok :)
    */
   public static void main(String[] args) {
     int N = 20000;
     int count = 0;
+    ThingList list = new ThingList();
 
     if( args.length != 0 )
-      N = Integer.parseInt(args[0]);
+      N = Integer.parseInt(args[0]); 
 
-    
-    ThingList list = new ThingList();
-    while(count < 100000){
+    while(count < N){
+      count++;
       Random r = new Random(System.currentTimeMillis());
-      if (count % N == 0){
+      int i = r.nextInt(3);
+      if (count % 100 == 0){
         list.addThing(new TypeA(45,50, 0, 'r')); 
-        
-        list.addThing(new TypeB(55,50, 0, 'b'));
-        count++;
-        //FIX HERE
-       // list.add(new TypeA(45,50,));
-       // list.add(new TypeB(55,50,   , 'b', true));
-        list.printAll();
-
+        list.addThing(new TypeB(55,50, 1, 'b'));
+        list.addThing(new TypeC(100, 43, 2, 'y'));
       }
-      if (count % 999 == 0)
+      if (count % 99 == 0){
         list.moveAll(r);
-      list.printAll();
-      count++;
-    }
-
-
- /* 
-    // INSTEAD OF A NODE, CREATE SOMETHING MORE USER-FRIENDLY.
-    //Node L = null;
-    //int count = 0;
-
-    while( true ) {
-      // Every N rounds, add another typeA and typeB Thing.
-      if( count % N == 0 ) {
-
-        // Add a typeA thing to the list.
-        // (GEE, THAT'S A LOT OF CODE FOR JUST CREATING ONE THING)
-        Thing tA = new Thing();
-        tA.row = 45;
-        tA.col = 50;
-        Node nA = new Node();
-        nA.data = tA;
-        nA.next = L;
-        L       = nA;
-
-        // Add a typeB thing to the list
-        Thing tB = new Thing();
-        tB.row     = 55;
-        tB.col     = 50;
-        tB.lab     = 'b';
-        tB.isTypeB = true;
-        Node nB = new Node();
-        nB.data = tB;
-        nB.next = L;
-        L       = nB;
-      }*/
-
-      // Print out each thing.
-      // (SEEMS LIKE A NICE PRINTALL() METHOD CALL WOULD WORK HERE)
-      // (SEEMS LIKE A toString() METHOD IN THE CLASS WOULD ALSO BE NICE)
-     // for( Node T = L; T != null; T = T.next )
-       // System.out.println(T.data.row + " " + T.data.col + " " + T.data.lab);
-
-    //  System.out.println("done");
-     // System.out.flush();
-
-      // Move each thing.
-      // (SEEMS LIKE A NICE MOVEALL() METHOD CALL WOULD WORK HERE)
-
-      /* 
-      for( Node T = L; T != null; T = T.next ) {
-        maybeTurn(T.data);
-        step(T.data);
       }
-      count++;
-    }*/
+      list.printAll();
+      System.out.println("done");
+      System.out.flush();
+    }
+ 
   }
 }
